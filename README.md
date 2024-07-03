@@ -1,0 +1,1 @@
+/frakinvite [id]
