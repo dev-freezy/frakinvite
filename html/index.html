@@ -3,18 +3,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
-    <title>Faction Invite</title>
-    <link rel="stylesheet" href="./style.css">
+    <title>Nova Service</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="invite-container" id="inviteContainer">
-        <h2 id="inviteTitle">Fraktion Einladung</h2>
-        <p id="inviteMessage">Du wurdest in die Fraktion $jobname$ eingeladen.</p>
-        <div class="buttons">
-            <button id="accept">Annehmen</button>
-            <button id="decline">Ablehnen</button>
+    <div class="gradient-border" id="gradient-border">
+        <div class="container">
+            <div class="frakinvite-text" id="frakinvite-text"></div>
+            <img src="logo.png" alt="Logo" class="logo">
+            <div class="server-name" id="server-name"></div>
+            <div class="invite-text" id="invite-text"></div>
+            <div class="buttons">
+                <button id="accept-button" class="button accept"></button>
+                <button id="decline-button" class="button decline"></button>
+            </div>
         </div>
     </div>
+
+    <script src="config.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

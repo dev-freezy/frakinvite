@@ -1,12 +1,14 @@
 
 RegisterNetEvent('frakinvite:sendInvite')
-AddEventHandler('frakinvite:sendInvite', function(inviterId,xjobname)
+AddEventHandler('frakinvite:sendInvite', function(inviter,job)
     SetNuiFocus(true, true)
    
     SendNUIMessage({
         type = "showInvite",
-        inviterId = inviterId,
-        jobname = xjobname
+        inviterId = inviter.source,
+        inviterName = inviter.name,
+        joblabel = job.label,
+        jobname = job.name
     })
 end)
 

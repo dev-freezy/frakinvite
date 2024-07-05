@@ -1,70 +1,102 @@
+@keyframes gradientBorder {
+    0% { background: linear-gradient(45deg, #ff0000, #7e0000); }
+    50% { background: linear-gradient(45deg, #7e0000, #ff0000); }
+    100% { background: linear-gradient(45deg, #ff0000, #7e0000); }
+}
+
 body {
-    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    font-family: Arial, sans-serif;
 }
 
-.invite-container {
-    background: linear-gradient(135deg, #e0f7fa, #4fc3f7);
-    border-radius: 15px;
+.gradient-border {
+    background: linear-gradient(45deg, #ff0000, #7e0000);
+    border-radius: 25px;
+    padding: 5px;
+    animation: gradientBorder 3s infinite;
+    display: none; /* Hide by default */
+}
+
+.container {
+    background-color: #380000;
+    border-radius: 20px;
     padding: 30px;
     text-align: center;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    color: #333;
-    max-width: 400px;
-    width: 100%;
-    display: none;
-   
+    width: 450px;
+    color: #fff;
+    box-shadow: 0 0 80px rgba(129, 0, 0, 0.7);
+    position: relative;
 }
 
-h2 {
-    margin-top: 0;
-    color: #01579b;
-    font-size: 24px;
-    margin-bottom: 20px;
+.frakinvite-text {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    font-weight: bold;
+    font-size: 1.3em;
+    color: rgba(255, 255, 255, 0.8);
 }
 
-p {
-    margin-bottom: 30px;
-    font-size: 18px;
+.logo {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.server-name {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 25px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.invite-text {
+    font-size: 1.4em;
+    margin: 25px 0;
+    line-height: 1.5;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .buttons {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
-button {
-    padding: 12px 24px;
-    font-size: 16px;
-    cursor: pointer;
+.button {
     border: none;
-    border-radius: 50px;
-    transition: all 0.3s ease;
-    font-weight: bold;
-    text-transform: uppercase;
+    border-radius: 30px;
+    padding: 15px 30px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s, color 0.3s;
+    width: 45%;
+    max-width: 180px;
 }
 
-#accept {
-    background-color: #4CAF50;
-    color: white;
+.button.accept {
+    background-color: #03ca32;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-#accept:hover {
-    background-color: #45a049;
-    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+.button.accept:hover {
+    background-color: #00ff2a;
 }
 
-#decline {
-    background-color: #f44336;
-    color: white;
+.button.decline {
+    background-color: #970311;
+    color: rgba(255, 255, 255, 0.9);
 }
 
-#decline:hover {
-    background-color: #da190b;
-    box-shadow: 0 5px 15px rgba(244, 67, 54, 0.4);
+.button.decline:hover {
+    background-color: #c82333;
 }

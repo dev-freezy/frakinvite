@@ -4,7 +4,7 @@ pendingInvites = {}
 
 RegisterCommand('frakinvite', function(source, args)
     local xPlayer = ESX.GetPlayerFromId(source)
-    local job = xPlayer.getJob().name
+    local job = xPlayer.getJob()
     local grade = xPlayer.getJob().grade
     local targetId = tonumber(args[1])
     local xTarget = ESX.GetPlayerFromId(targetId)
@@ -12,11 +12,11 @@ RegisterCommand('frakinvite', function(source, args)
         if targetId ~= source then
             if isPlayerDead(targetId) == false then
                 if not pendingInvites[targetId] then
-                    if config.allowedGrades[job] <= grade then
+                    if config.allowedGrades[job.name] <= grade then
                         local targetJob = xTarget.getJob().name
                         if xTarget.getJob().name == config.unemployedname then
-                                if targetJob ~= job then
-                                    TriggerClientEvent('frakinvite:sendInvite', targetId, source ,job)
+                                if targetJob ~= job.name then
+                                    TriggerClientEvent('frakinvite:sendInvite', targetId, xPlayer ,job)
                                     pendingInvites[xTarget.source] = job
                                     config.sendNotify(source,"success","Frakinvite","Einladung erfolgreich verschickt!",5000)
                                 else
@@ -52,11 +52,13 @@ end, false)
 
 
 RegisterServerEvent('frakinvite:handleInvite')
-AddEventHandler('frakinvite:handleInvite', function(data , accept)
+AddEventHandler('frakinvite:handleInvite', function(data,accept)
     local xPlayer = ESX.GetPlayerFromId(source)
     local inviterID = data.inviterId
+    local jobname = data.jobname
     if xPlayer then
         if pendingInvites[source] then
+            
             if accept then
                 xPlayer.setJob(pendingInvites[source],0)
                 config.sendNotify(source ,"success", "Frakinvite", "Du hast den Job erfolgreich angenommen!", 5000)

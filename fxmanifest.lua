@@ -1,9 +1,10 @@
 
+
 fx_version 'cerulean'
 game 'gta5'
 
 author 'Freezy'
-description 'Frakinvite'
+description 'Apfelsosenmus'
 version '4.2.0'
 
 client_scripts {
@@ -24,5 +25,7 @@ ui_page 'html/index.html'
 files {
     'html/index.html',
     'html/style.css',
-    'html/script.js'
+    'html/script.js',
+    'html/config.js',
+    'html/logo.png'
 }
