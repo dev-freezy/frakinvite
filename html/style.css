@@ -18,7 +18,7 @@ body {
     border-radius: 25px;
     padding: 5px;
     animation: gradientBorder 3s infinite;
-    display: none; /* Hide by default */
+    display: none; 
 }
 
 .container {
